@@ -1,4 +1,4 @@
-package com.test.lolinformation.data.model
+package com.test.lolinformation.data.local.model
 
 import com.google.gson.annotations.SerializedName
 
