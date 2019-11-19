@@ -1,5 +1,6 @@
 package com.test.lolinformation.data.remote.api
 
+const val BASE_URL = "https://api.pandascore.co"
 const val PATH_CHAMPION = "/lol/champions"
 const val PATH_ITEM = "/lol/items"
 const val PATH_LEAGUE = "/lol/leagues"
