@@ -1,3 +1,3 @@
 package com.test.lolinformation.di
 
-val appModule = listOf(networkModule, viewModelModule)
+val appModules = listOf(networkModule, repositoryModule, viewModelModule)
