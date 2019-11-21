@@ -16,7 +16,16 @@ abstract class BaseActivity<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
     abstract val layoutId: Int
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initViewBinding()
+        initView()
+    }
+
+    private fun initViewBinding() {
         viewBinding = DataBindingUtil.setContentView(this, layoutId)
         viewBinding.setVariable(BR.viewModel, viewModel)
+        viewBinding.lifecycleOwner = this
     }
+
+    protected abstract fun initView()
+
 }

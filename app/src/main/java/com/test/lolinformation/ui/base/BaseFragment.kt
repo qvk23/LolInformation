@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.test.lolinformation.BR
 
 abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewModel> : Fragment() {
@@ -27,10 +29,49 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViewBinding()
+        initView()
+    }
+
+    private fun initViewBinding() {
         viewBinding.apply {
             lifecycleOwner = viewLifecycleOwner
             setVariable(BR.viewModel, viewModel)
             executePendingBindings()
         }
     }
+
+    protected abstract fun initView()
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        observeLoading()
+        observeData()
+    }
+
+    private fun observeLoading() {
+        viewModel.apply {
+            isLoading.observe(viewLifecycleOwner, Observer(::handleShowLoading))
+            errorMessage.observe(viewLifecycleOwner, Observer {
+                hideLoading()
+                if (it.isNullOrBlank().not()) {
+                    handleShowErrorMessage(it)
+                }
+            })
+        }
+    }
+
+    private fun handleShowLoading(isLoading: Boolean?) {
+        if (isLoading == true) showLoading() else hideLoading()
+    }
+
+    open fun showLoading() {}
+
+    open fun hideLoading() {}
+
+    private fun handleShowErrorMessage(msg: String?) {
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+    }
+
+    abstract fun observeData()
 }

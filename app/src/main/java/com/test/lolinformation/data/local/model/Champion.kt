@@ -1,8 +1,13 @@
 package com.test.lolinformation.data.local.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "champion")
 data class Champion(
+    @SerializedName("id")
+    @PrimaryKey(autoGenerate = false) val id: Int,
     @SerializedName("armor")
     val armor: Double,
     @SerializedName("armorperlevel")
@@ -14,7 +19,7 @@ data class Champion(
     @SerializedName("attackrange")
     val attackRange: Double,
     @SerializedName("attackspeedoffset")
-    val attackSpeedOffset: Any,
+    val attackSpeedOffset: Double?,
     @SerializedName("attackspeedperlevel")
     val attackSpeedPerLevel: Double,
     @SerializedName("big_image_url")
@@ -31,8 +36,6 @@ data class Champion(
     val hpRegen: Double,
     @SerializedName("hpregenperlevel")
     val hpRegenPerLevel: Double,
-    @SerializedName("id")
-    val id: Int,
     @SerializedName("image_url")
     val imageUrl: String,
     @SerializedName("movespeed")

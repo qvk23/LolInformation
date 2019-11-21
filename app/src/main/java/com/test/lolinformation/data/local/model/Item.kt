@@ -1,8 +1,13 @@
 package com.test.lolinformation.data.local.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "item")
 data class Item(
+    @SerializedName("id")
+    @PrimaryKey(autoGenerate = false) val id: Int,
     @SerializedName("flat_armor_mod")
     val flatArmorMod: Int,
     @SerializedName("flat_crit_chance_mod")
@@ -22,17 +27,15 @@ data class Item(
     @SerializedName("flat_physical_damage_mod")
     val flatPhysicalDamageMod: Int,
     @SerializedName("flat_spell_block_mod")
-    val flatSpellBlockMod: Any,
+    val flatSpellBlockMod: Double?,
     @SerializedName("gold_base")
-    val goldBase: Int,
+    val goldBase: Int?,
     @SerializedName("gold_purchasable")
     val goldPurchasable: Boolean,
     @SerializedName("gold_sell")
-    val goldSell: Int,
+    val goldSell: Int?,
     @SerializedName("gold_total")
-    val goldTotal: Int,
-    @SerializedName("id")
-    val id: Int,
+    val goldTotal: Int?,
     @SerializedName("image_url")
     val imageUrl: String,
     @SerializedName("is_trinket")
