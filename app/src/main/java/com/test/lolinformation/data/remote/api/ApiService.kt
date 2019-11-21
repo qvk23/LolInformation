@@ -38,19 +38,19 @@ interface ApiService {
     ): MatchesListResponse
 
     @GET(PATH_PLAYER_FOR_SERIE)
-    suspend fun getPlayerForSerie(
+    suspend fun getPlayerBySerie(
         @Path(PATH_PARAM_SERIE_ID) id: Int,
         @Query(QUERY_PAGE) page: Int,
         @Query(QUERY_PER_PAGE) perPage: Int
     ) : PlayerListResponse
 
     @GET(PATH_PLAYER)
-    suspend fun getPlayerForTeam(
+    suspend fun getPlayerByTeam(
         @Query(QUERY_FILTER_TEAM_ID) teamId: Int
     ) : List<Player>
 
     @GET(PATH_TEAM)
-    suspend fun getTeamForSerie(
+    suspend fun getTeamBySerie(
         @Path(PATH_PARAM_SERIE_ID) id: Int,
         @Query(QUERY_PAGE) page: Int,
         @Query(QUERY_PER_PAGE) perPage: Int
