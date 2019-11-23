@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LolInformation</string>
+    <string name="item_game_play">GamePlay</string>
+    <string name="item_tournament">Tournament</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
