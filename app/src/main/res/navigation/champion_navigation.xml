@@ -9,6 +9,19 @@
         android:id="@+id/championFragment"
         android:name="com.test.lolinformation.ui.gameplay.champion.ChampionFragment"
         android:label="ChampionFragment"
-        tools:layout="@layout/base_load_more_fragment" />
+        tools:layout="@layout/base_load_more_fragment">
+        <action
+            android:id="@+id/action_championFragment_to_detailChampionFragment"
+            app:destination="@id/detailChampionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailChampionFragment"
+        android:name="com.test.lolinformation.ui.gameplay.detailchamp.DetailChampionFragment"
+        android:label="detail_champion_fragment"
+        tools:layout="@layout/detail_champion_fragment" >
+        <argument
+            android:name="championArg"
+            app:argType="com.test.lolinformation.data.local.model.Champion" />
+    </fragment>
 
 </navigation>

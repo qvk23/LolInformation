@@ -1,6 +1,7 @@
 package com.test.lolinformation.ui.gameplay.champion
 
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.test.lolinformation.data.local.model.Champion
 import com.test.lolinformation.databinding.BaseLoadMoreFragmentBinding
@@ -11,7 +12,13 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ChampionFragment :
     BaseLoadMoreFragment<BaseLoadMoreFragmentBinding, ChampionViewModel, Champion>() {
     private val championAdapter by lazy {
-        ChampionAdapter()
+        ChampionAdapter(
+            onItemClick = {
+                findNavController().navigate(
+                    ChampionFragmentDirections.actionChampionFragmentToDetailChampionFragment(it)
+                )
+            }
+        )
     }
     override val viewModel: ChampionViewModel by viewModel()
 
@@ -30,6 +37,7 @@ class ChampionFragment :
             firstLoad()
         }
     }
+
     companion object {
         const val SPAN_COUNT = 3
     }
