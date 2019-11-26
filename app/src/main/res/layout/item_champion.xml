@@ -24,10 +24,8 @@
             android:id="@+id/cardViewChampion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/dp_24"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:paddingTop="@dimen/dp_16"
+            android:paddingBottom="@dimen/dp_16">
 
             <ImageView
                 android:id="@+id/imageChampion"

@@ -34,7 +34,7 @@ abstract class BaseRecyclerAdapter<Item, ViewBinding : ViewDataBinding>(
     protected open fun bindFirstTime(binding: ViewBinding) {}
 
     @get:LayoutRes
-    protected abstract val layoutId: Int
+    abstract val layoutId: Int
 
     override fun onBindViewHolder(holder: BaseViewHolder<ViewBinding>, position: Int) {
         currentList.get(position)?.let {

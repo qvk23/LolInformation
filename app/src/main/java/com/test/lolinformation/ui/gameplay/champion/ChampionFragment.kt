@@ -41,4 +41,5 @@ class ChampionFragment :
     companion object {
         const val SPAN_COUNT = 3
     }
+
 }
