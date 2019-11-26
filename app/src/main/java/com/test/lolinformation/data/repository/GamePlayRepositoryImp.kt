@@ -5,8 +5,6 @@ import com.test.lolinformation.data.local.dao.ItemDao
 import com.test.lolinformation.data.local.model.Champion
 import com.test.lolinformation.data.local.model.Item
 import com.test.lolinformation.data.remote.api.ApiService
-import com.test.lolinformation.data.remote.response.ChampionListResponse
-import com.test.lolinformation.data.remote.response.ItemListResponse
 
 class GamePlayRepositoryImp(
     private val apiService: ApiService,
@@ -14,10 +12,10 @@ class GamePlayRepositoryImp(
     private val itemDao: ItemDao
 ) : GamePlayRepository {
 
-    override suspend fun getChampions(page: Int, perPage: Int): ChampionListResponse =
+    override suspend fun getChampions(page: Int, perPage: Int): List<Champion> =
         apiService.getChampions(page, perPage)
 
-    override suspend fun getItems(page: Int, perPage: Int): ItemListResponse =
+    override suspend fun getItems(page: Int, perPage: Int): List<Item> =
         apiService.getItems(page, perPage)
 
     override suspend fun getChampionsLocal(): List<Champion> = championDao.getChampionList()

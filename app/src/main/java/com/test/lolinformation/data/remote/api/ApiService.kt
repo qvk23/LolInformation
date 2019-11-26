@@ -11,13 +11,13 @@ interface ApiService {
     suspend fun getChampions(
         @Query(QUERY_PAGE) page: Int,
         @Query(QUERY_PER_PAGE) perPage: Int
-    ) : ChampionListResponse
+    ) : List<Champion>
 
     @GET(PATH_ITEM)
     suspend fun getItems(
         @Query(QUERY_PAGE) page: Int,
         @Query(QUERY_PER_PAGE) perPage: Int
-    ): ItemListResponse
+    ): List<Item>
 
     @GET(PATH_LEAGUE)
     suspend fun getLeagueByName(

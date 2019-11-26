@@ -18,6 +18,7 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
     abstract val viewModel: ViewModel
     @get:LayoutRes
     abstract val layoutId: Int
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,8 +36,8 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
 
     private fun initViewBinding() {
         viewBinding.apply {
-            lifecycleOwner = viewLifecycleOwner
             setVariable(BR.viewModel, viewModel)
+            lifecycleOwner = viewLifecycleOwner
             executePendingBindings()
         }
     }
