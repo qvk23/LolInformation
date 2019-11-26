@@ -3,8 +3,6 @@ package com.test.lolinformation.ui.gameplay
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.ListFragment
-import com.test.lolinformation.ui.gameplay.container.ChampionContainerFragment
 
 class GamePlayPagerAdapter(
     fragmentManager: FragmentManager,

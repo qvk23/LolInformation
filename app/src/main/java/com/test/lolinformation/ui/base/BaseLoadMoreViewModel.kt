@@ -41,6 +41,7 @@ abstract class BaseLoadMoreViewModel<Item>() : BaseViewModel() {
                 || isRefreshing.value == true
             ) return
             _isLoadMore.value = true
+            showLoading()
             loadMore()
         }
     }
