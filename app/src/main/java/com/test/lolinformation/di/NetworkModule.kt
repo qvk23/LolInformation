@@ -20,14 +20,14 @@ val networkModule = module {
     single(named(LOGGING)) { createLoggingInterceptor() }
     single { createOkHttpClient(get(named(HEADER)), get(named(LOGGING))) }
     single { createRetrofit(get()) }
+    single { createApiService(get()) }
 }
 
 fun createLoggingInterceptor(): Interceptor = HttpLoggingInterceptor().apply {
     level =
         if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor.Level.BODY
-        }
-        else {
+        } else {
             HttpLoggingInterceptor.Level.NONE
         }
 }
