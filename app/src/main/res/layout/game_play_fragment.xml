@@ -12,10 +12,13 @@
             android:id="@+id/tabLayoutGamePlay"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
+            android:background="@color/colorGray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabIndicator="@drawable/selected_dot"
+            app:tabIndicatorHeight="@dimen/dp_10"
+            app:tabSelectedTextColor="@color/colorAccent" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPagerGamePlay"
