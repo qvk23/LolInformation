@@ -21,16 +21,8 @@ data class Champion(
     val attackDamagePerLevel: Double,
     @SerializedName("attackrange")
     val attackRange: Double,
-    @SerializedName("attackspeedoffset")
-    val attackSpeedOffset: Double?,
-    @SerializedName("attackspeedperlevel")
-    val attackSpeedPerLevel: Double,
     @SerializedName("big_image_url")
     val bigImageUrl: String,
-    @SerializedName("crit")
-    val crit: Double,
-    @SerializedName("critperlevel")
-    val critPerLevel: Double,
     @SerializedName("hp")
     val hp: Double,
     @SerializedName("hpperlevel")

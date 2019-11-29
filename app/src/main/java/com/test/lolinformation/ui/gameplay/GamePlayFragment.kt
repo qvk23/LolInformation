@@ -5,6 +5,7 @@ import com.test.lolinformation.R
 import com.test.lolinformation.databinding.GamePlayFragmentBinding
 import com.test.lolinformation.ui.base.BaseFragment
 import com.test.lolinformation.ui.gameplay.container.ChampionContainerFragment
+import com.test.lolinformation.ui.gameplay.item.ItemFragment
 import kotlinx.android.synthetic.main.game_play_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -21,7 +22,8 @@ class GamePlayFragment : BaseFragment<GamePlayFragmentBinding, GamePlayViewModel
 
     private fun setUpViewPager() {
         val championFragment = ChampionContainerFragment.newInstance()
-        val list = listOf<Fragment>(championFragment)
+        val itemFragment = ItemFragment.newInstance()
+        val list = listOf<Fragment>(championFragment, itemFragment)
         val adapter = GamePlayPagerAdapter(childFragmentManager, list)
         viewPagerGamePlay.apply {
             setAdapter(adapter)

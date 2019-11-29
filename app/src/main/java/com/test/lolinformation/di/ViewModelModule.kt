@@ -4,6 +4,7 @@ import com.test.lolinformation.ui.gameplay.container.ChampionContainerViewModel
 import com.test.lolinformation.ui.gameplay.GamePlayViewModel
 import com.test.lolinformation.ui.gameplay.champion.ChampionViewModel
 import com.test.lolinformation.ui.gameplay.detailchamp.DetailChampionViewModel
+import com.test.lolinformation.ui.gameplay.item.ItemViewModel
 import com.test.lolinformation.ui.main.MainActivityViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -14,4 +15,5 @@ val viewModelModule = module {
     viewModel { ChampionContainerViewModel() }
     viewModel { ChampionViewModel(get()) }
     viewModel { DetailChampionViewModel() }
+    viewModel { ItemViewModel(get()) }
 }
