@@ -8,10 +8,16 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.test.lolinformation.BR
 
 abstract class BaseRecyclerAdapter<Item, ViewBinding : ViewDataBinding>(
     callback: DiffUtil.ItemCallback<Item>
 ) : ListAdapter<Item, BaseViewHolder<ViewBinding>>(callback) {
+
+    override fun submitList(list: MutableList<Item>?) {
+        super.submitList(ArrayList<Item>(list ?: listOf()))
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<ViewBinding> {
         return BaseViewHolder(
             DataBindingUtil.inflate(
@@ -24,10 +30,13 @@ abstract class BaseRecyclerAdapter<Item, ViewBinding : ViewDataBinding>(
     }
 
     @get:LayoutRes
-    abstract val layoutId: Int
+    protected abstract val layoutId: Int
 
     override fun onBindViewHolder(holder: BaseViewHolder<ViewBinding>, position: Int) {
-        bindView(holder.binding, getItem(position), position)
+        currentList.get(position).let {
+            holder.binding.setVariable(BR.item, it)
+            bindView(holder.binding, it, position)
+        }
         holder.binding.executePendingBindings()
     }
 

@@ -1,14 +1,8 @@
 package com.test.lolinformation.data.repository
 
 import com.test.lolinformation.data.local.dao.MatchDao
-import com.test.lolinformation.data.local.model.League
-import com.test.lolinformation.data.local.model.Match
-import com.test.lolinformation.data.local.model.Player
-import com.test.lolinformation.data.local.model.Sery
+import com.test.lolinformation.data.local.model.*
 import com.test.lolinformation.data.remote.api.ApiService
-import com.test.lolinformation.data.remote.response.MatchesListResponse
-import com.test.lolinformation.data.remote.response.PlayerListResponse
-import com.test.lolinformation.data.remote.response.TeamListResponse
 
 class MatchRepositoryImp(
     private val apiService: ApiService,
@@ -25,17 +19,16 @@ class MatchRepositoryImp(
         serieId: Int,
         page: Int,
         perPage: Int
-    ): MatchesListResponse = apiService.getMatchesBySerie(serieId, page, perPage)
+    ): List<Match> = apiService.getMatchesBySerie(serieId, page, perPage)
 
-    override suspend fun getTeamBySerie(serieId: Int, page: Int, perPage: Int): TeamListResponse =
+    override suspend fun getTeamBySerie(serieId: Int, page: Int, perPage: Int): List<Team> =
         apiService.getTeamBySerie(serieId, page, perPage)
-
 
     override suspend fun getPlayerBySerie(
         serieId: Int,
         page: Int,
         perPage: Int
-    ): PlayerListResponse = apiService.getPlayerBySerie(serieId, page, perPage)
+    ): List<Player> = apiService.getPlayerBySerie(serieId, page, perPage)
 
     override suspend fun getPlayerByTeam(teamId: Int): List<Player> =
         apiService.getPlayerByTeam(teamId)

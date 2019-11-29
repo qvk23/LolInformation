@@ -1,7 +1,6 @@
 package com.test.lolinformation.data.remote.api
 
 import com.test.lolinformation.data.local.model.*
-import com.test.lolinformation.data.remote.response.*
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -35,14 +34,14 @@ interface ApiService {
         @Query(QUERY_FILTER_SERIE_ID) serieId: Int,
         @Query(QUERY_PAGE) page: Int,
         @Query(QUERY_PER_PAGE) perPage: Int
-    ): MatchesListResponse
+    ): List<Match>
 
     @GET(PATH_PLAYER_FOR_SERIE)
     suspend fun getPlayerBySerie(
         @Path(PATH_PARAM_SERIE_ID) id: Int,
         @Query(QUERY_PAGE) page: Int,
         @Query(QUERY_PER_PAGE) perPage: Int
-    ) : PlayerListResponse
+    ) : List<Player>
 
     @GET(PATH_PLAYER)
     suspend fun getPlayerByTeam(
@@ -54,5 +53,5 @@ interface ApiService {
         @Path(PATH_PARAM_SERIE_ID) id: Int,
         @Query(QUERY_PAGE) page: Int,
         @Query(QUERY_PER_PAGE) perPage: Int
-    ) : TeamListResponse
+    ) : List<Team>
 }
