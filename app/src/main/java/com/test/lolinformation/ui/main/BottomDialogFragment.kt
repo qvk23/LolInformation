@@ -34,11 +34,7 @@ class BottomDialogFragment : BottomSheetDialogFragment() {
 
     private fun initComponent() {
         val navController = activity?.findNavController(R.id.navHostfragment)
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.gamePlayFragment, R.id.tournamentFragment
-            )
-        )
+        AppBarConfiguration(setOf(R.id.gamePlayFragment, R.id.tournamentFragment))
         navController?.let { navigationViewMain.setupWithNavController(it) }
     }
 

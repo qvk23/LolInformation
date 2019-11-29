@@ -36,5 +36,4 @@ class GamePlayFragment : BaseFragment<GamePlayFragmentBinding, GamePlayViewModel
         const val FIRST_PAGE = 0
     }
 
-
 }

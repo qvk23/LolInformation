@@ -23,10 +23,12 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewChampion"
             android:layout_width="0dp"
+            app:cardCornerRadius="@dimen/dp_8"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/dp_24"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            android:paddingTop="@dimen/dp_16"
+            android:paddingBottom="@dimen/dp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView

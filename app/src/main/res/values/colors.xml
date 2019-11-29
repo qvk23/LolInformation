@@ -5,4 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGray">#808080</color>
+    <color name="colorWhiteBlur">#B2FFFFFF</color>
+    <color name="colorGrayOpacity">#B2474141</color>
+    <color name="colorText">#B2FFFFFF</color>
 </resources>
