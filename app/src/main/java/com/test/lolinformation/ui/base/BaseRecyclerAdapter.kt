@@ -20,20 +20,24 @@ abstract class BaseRecyclerAdapter<Item, ViewBinding : ViewDataBinding>(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<ViewBinding> {
         return BaseViewHolder(
-            DataBindingUtil.inflate(
+            DataBindingUtil.inflate<ViewBinding>(
                 LayoutInflater.from(parent.context),
                 layoutId,
                 parent,
                 false
-            )
+            ).apply {
+                bindFirstTime(this)
+            }
         )
     }
+
+    protected open fun bindFirstTime(binding: ViewBinding) {}
 
     @get:LayoutRes
     protected abstract val layoutId: Int
 
     override fun onBindViewHolder(holder: BaseViewHolder<ViewBinding>, position: Int) {
-        currentList.get(position).let {
+        currentList.get(position)?.let {
             holder.binding.setVariable(BR.item, it)
             bindView(holder.binding, it, position)
         }

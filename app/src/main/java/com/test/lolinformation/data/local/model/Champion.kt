@@ -1,9 +1,12 @@
 package com.test.lolinformation.data.local.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "champion")
 data class Champion(
     @SerializedName("id")
@@ -54,4 +57,4 @@ data class Champion(
     val spellBlock: Double,
     @SerializedName("spellblockperlevel")
     val spellBlockPerLevel: Double
-)
+) : Parcelable
