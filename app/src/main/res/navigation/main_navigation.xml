@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_navigation"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
     app:startDestination="@id/gamePlayFragment">
     <fragment
         android:id="@+id/gamePlayFragment"
         android:name="com.test.lolinformation.ui.gameplay.GamePlayFragment"
         android:label="GamePlayFragment" />
+    <fragment
+        android:id="@+id/tournamentFragment"
+        android:name="com.test.lolinformation.ui.tournament.TournamentFragment"
+        android:label="fragment_tournament"
+        tools:layout="@layout/fragment_tournament" />
 </navigation>
