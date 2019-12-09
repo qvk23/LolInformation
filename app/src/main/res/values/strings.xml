@@ -4,15 +4,14 @@
     <string name="item_tournament">Tournament</string>
 
     <string name="statistics">BASE STATISTICS</string>
-    <string name="health">HEALTH</string>
-    <string name="health_regen">HEALTH REGEN</string>
-    <string name="armor">ARMOR</string>
-    <string name="att_damage">ATTACK DAMAGE</string>
-    <string name="mana">Mana</string>
-    <string name="mana_regen">Mana Regen</string>
-    <string name="speed">Move Speed</string>
-    <string name="spell_block">SPELL BLOCK</string>
-    <string name="att_range">ATTACK RANGE</string>
-
-    <string name="gold">Gold</string>
+    <string name="item_health">HEALTH</string>
+    <string name="item_health_regen">HEALTH REGEN</string>
+    <string name="item_armor">ARMOR</string>
+    <string name="item_att_damage">ATTACK DAMAGE</string>
+    <string name="item_mana">Mana</string>
+    <string name="item_mana_regen">Mana Regen</string>
+    <string name="item_speed">Move Speed</string>
+    <string name="item_spell_block">SPELL BLOCK</string>
+    <string name="item_att_range">ATTACK RANGE</string>
+    <string name="item_gold">Gold</string>
 </resources>

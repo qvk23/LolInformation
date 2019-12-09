@@ -37,7 +37,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/imageViewItem"
+                    android:id="@+id/imageEquipmentItem"
                     loadImage="@{item.imageUrl}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -45,7 +45,6 @@
                     tools:ignore="ContentDescription"
                     tools:srcCompat="@tools:sample/avatars" />
             </androidx.cardview.widget.CardView>
-
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineImage"
@@ -55,7 +54,7 @@
                 app:layout_constraintGuide_percent="0.3" />
 
             <TextView
-                android:id="@+id/textViewItemName"
+                android:id="@+id/textItemName"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="@dimen/dp_3"
@@ -68,20 +67,20 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewGold"
+                android:id="@+id/textGold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_4"
                 android:layout_marginEnd="@dimen/dp_4"
                 android:gravity="end"
-                android:text="@string/gold"
+                android:text="@string/item_gold"
                 android:textSize="@dimen/sp_10"
-                app:layout_constraintBottom_toTopOf="@+id/textViewGoldValue"
+                app:layout_constraintBottom_toTopOf="@+id/textGoldValue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guidelineText" />
 
             <TextView
-                android:id="@+id/textViewGoldValue"
+                android:id="@+id/textGoldValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_4"

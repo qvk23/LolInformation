@@ -18,3 +18,10 @@ const val QUERY_FILTER_SERIE_ID = "filter[serie_id]"
 const val QUERY_FILTER_LEAGUE_ID = "filter[league_id]"
 const val QUERY_FILTER_YEAR = "filter[year]"
 const val QUERY_FILTER_TEAM_ID = "filter[team_id]"
+
+const val LCK_LEAGUE_ID = 293
+const val LPL_LEAGUE_ID = 294
+const val LEC_LEAGUE_ID = 4197
+
+const val DEFAULT_ITEM_PER_PAGE = 20
+const val YEAR = 2019

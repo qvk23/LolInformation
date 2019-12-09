@@ -3,6 +3,7 @@ package com.test.lolinformation.ui.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.test.lolinformation.data.remote.api.DEFAULT_ITEM_PER_PAGE
 import com.test.lolinformation.ui.widget.EndlessScrollingRecycler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -16,6 +17,7 @@ abstract class BaseLoadMoreViewModel<Item>() : BaseViewModel() {
     val isLoadMore: LiveData<Boolean> get() = _isLoadMore
     private val _isRefreshing = MutableLiveData<Boolean>().apply { value = false }
     val isRefreshing: LiveData<Boolean> get() = _isRefreshing
+    private val isLastPage = MutableLiveData<Boolean>().apply { value = false }
 
     fun firstLoad() {
         if (isFirst()) {
@@ -39,6 +41,7 @@ abstract class BaseLoadMoreViewModel<Item>() : BaseViewModel() {
             if (isLoading.value == true
                 || isLoadMore.value == true
                 || isRefreshing.value == true
+                || isLastPage.value == true
             ) return
             _isLoadMore.value = true
             showLoading()
@@ -56,6 +59,7 @@ abstract class BaseLoadMoreViewModel<Item>() : BaseViewModel() {
 
     fun resetLoadMore() {
         onScrollListener.resetOnLoadMore()
+        isLastPage.value = false
     }
 
     abstract fun loadData(page: Int)
@@ -68,6 +72,7 @@ abstract class BaseLoadMoreViewModel<Item>() : BaseViewModel() {
             val newList = _listItem.value ?: ArrayList()
             newList.addAll(items ?: listOf())
             _listItem.value = newList
+            isLastPage.value = items?.size ?: 0 < DEFAULT_ITEM_PER_PAGE
             hideLoading()
             _isRefreshing.value = false
             _isLoadMore.value = false
