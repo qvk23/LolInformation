@@ -2,7 +2,7 @@ package com.test.lolinformation.data.local.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Sery(
+data class Series(
     @SerializedName("begin_at")
     val beginAt: String,
     @SerializedName("description")

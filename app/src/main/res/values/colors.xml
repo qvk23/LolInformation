@@ -7,4 +7,6 @@
     <color name="colorGray">#808080</color>
     <color name="colorGrayOpacity">#B2474141</color>
     <color name="colorText">#B2FFFFFF</color>
+    <color name="colorGray50">#80808080</color>
+    <color name="colorYellow">#808080</color>
 </resources>

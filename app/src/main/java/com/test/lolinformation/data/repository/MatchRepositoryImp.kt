@@ -12,7 +12,7 @@ class MatchRepositoryImp(
     override suspend fun getLeagueByName(name: List<String>): List<League> =
         apiService.getLeagueByName(name)
 
-    override suspend fun getSeriesByLeague(leagueId: Int, year: Int): List<Sery> =
+    override suspend fun getSeriesByLeague(leagueId: Int, year: Int): List<Series> =
         apiService.getSeriesByLeague(leagueId, year)
 
     override suspend fun getMatchBySerie(

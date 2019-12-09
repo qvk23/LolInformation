@@ -1,15 +1,12 @@
 package com.test.lolinformation.data.repository
 
 import com.test.lolinformation.data.local.model.*
-import com.test.lolinformation.data.remote.response.MatchesListResponse
-import com.test.lolinformation.data.remote.response.PlayerListResponse
-import com.test.lolinformation.data.remote.response.TeamListResponse
 
 interface MatchRepository {
 
     suspend fun getLeagueByName(name: List<String>): List<League>
 
-    suspend fun getSeriesByLeague(leagueId: Int, year: Int): List<Sery>
+    suspend fun getSeriesByLeague(leagueId: Int, year: Int): List<Series>
 
     suspend fun getMatchBySerie(serieId: Int, page: Int, perPage: Int): List<Match>
 
