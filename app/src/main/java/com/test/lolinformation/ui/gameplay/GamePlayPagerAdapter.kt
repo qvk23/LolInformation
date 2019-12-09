@@ -9,11 +9,7 @@ class GamePlayPagerAdapter(
     private val listItem: List<Fragment>
 ) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    override fun getItem(position: Int): Fragment {
-        var item = Fragment()
-        if (position == 0) item = listItem.get(FIRST_PAGE)
-        return item
-    }
+    override fun getItem(position: Int): Fragment = listItem.get(position)
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
@@ -26,8 +22,7 @@ class GamePlayPagerAdapter(
     override fun getCount(): Int = NUM_PAGER
 
     companion object {
-        const val FIRST_PAGE = 0
-        const val NUM_PAGER = 1
+        const val NUM_PAGER = 2
         const val CHAMPION = "Champion"
         const val ITEM = "Item"
     }
