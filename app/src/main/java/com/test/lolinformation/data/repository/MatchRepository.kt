@@ -16,7 +16,4 @@ interface MatchRepository {
 
     suspend fun getPlayerByTeam(teamId: Int): List<Player>
 
-    suspend fun getMatchLocal(): List<Match>
-
-    suspend fun insertMatch(matches: List<Match>)
 }

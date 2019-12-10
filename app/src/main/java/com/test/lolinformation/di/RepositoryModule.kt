@@ -9,9 +9,8 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
     single<GamePlayRepository> { GamePlayRepositoryImp(get(), get(), get()) }
-    single<MatchRepository> { MatchRepositoryImp(get(), get()) }
+    single<MatchRepository> { MatchRepositoryImp(get()) }
     single { AppDatabase.getInstance(get()) }
     single { AppDatabase.getInstance(get()).championDao() }
     single { AppDatabase.getInstance(get()).itemDao() }
-    single { AppDatabase.getInstance(get()).matchDao() }
 }

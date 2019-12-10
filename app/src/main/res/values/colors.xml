@@ -9,4 +9,5 @@
     <color name="colorText">#B2FFFFFF</color>
     <color name="colorGray50">#80808080</color>
     <color name="colorYellow">#808080</color>
+    <color name="color_light_gray">#F3F0F0</color>
 </resources>

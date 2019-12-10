@@ -13,5 +13,9 @@
     <string name="item_speed">Move Speed</string>
     <string name="item_spell_block">SPELL BLOCK</string>
     <string name="item_att_range">ATTACK RANGE</string>
+    <string name="item_dash">-</string>
     <string name="item_gold">Gold</string>
+    <string name="item_score">Score</string>
+    <string name="string_vs">VS</string>
+    <string name="string_match">Match</string>
 </resources>

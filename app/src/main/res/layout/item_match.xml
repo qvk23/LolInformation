@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.test.lolinformation.data.local.model.Match" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_4"
+        app:cardCornerRadius="@dimen/dp_12"
+        app:strokeColor="@color/colorGrayOpacity"
+        app:strokeWidth="@dimen/dp_2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dp_4">
+
+            <TextView
+                android:id="@+id/textDash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_dash"
+                android:textSize="@dimen/sp_25"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textTeamLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textScoreLeft"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewTeamLeft"
+                tools:text="@string/string_match" />
+
+            <TextView
+                android:id="@+id/textScoreLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_8"
+                app:layout_constraintBottom_toBottomOf="@+id/textDash"
+                app:layout_constraintEnd_toStartOf="@+id/textDash"
+                app:layout_constraintTop_toTopOf="@+id/textDash"
+                tools:ignore="RtlCompat"
+                tools:text="@string/item_score" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewTeamLeft"
+                android:layout_width="@dimen/dp_90"
+                android:layout_height="@dimen/dp_90"
+                app:cardCornerRadius="@dimen/dp_45"
+                app:layout_constraintEnd_toStartOf="@+id/textScoreLeft"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/colorGrayOpacity"
+                app:strokeWidth="@dimen/dp_2">
+
+                <ImageView
+                    android:id="@+id/imageTeamLeft"
+                    android:layout_width="@dimen/dp_70"
+                    android:layout_height="@dimen/dp_70"
+                    android:layout_gravity="center"
+                    tools:ignore="ContentDescription"
+                    tools:srcCompat="@tools:sample/avatars" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewTeamRight"
+                android:layout_width="@dimen/dp_90"
+                android:layout_height="@dimen/dp_90"
+                app:cardCornerRadius="@dimen/dp_45"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textScoreRight"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="@dimen/dp_2">
+
+                <ImageView
+                    android:id="@+id/imageTeamRight"
+                    android:layout_width="@dimen/dp_70"
+                    android:layout_height="@dimen/dp_70"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    tools:ignore="ContentDescription"
+                    tools:srcCompat="@tools:sample/avatars" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textScoreRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                app:layout_constraintBottom_toBottomOf="@+id/textDash"
+                app:layout_constraintStart_toEndOf="@+id/textDash"
+                app:layout_constraintTop_toTopOf="@+id/textDash"
+                tools:ignore="RtlCompat"
+                tools:text="@string/item_score" />
+
+            <TextView
+                android:id="@+id/textTeamRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textScoreRight"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewTeamRight"
+                tools:text="@string/string_match" />
+
+            <TextView
+                android:id="@+id/textMatchCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`BO` +item.numberOfGames}"
+                app:layout_constraintBottom_toTopOf="@+id/textDash"
+                app:layout_constraintEnd_toEndOf="@+id/textDash"
+                app:layout_constraintStart_toStartOf="@+id/textDash" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
