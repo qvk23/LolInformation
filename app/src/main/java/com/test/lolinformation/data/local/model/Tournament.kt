@@ -22,7 +22,7 @@ data class Tournament(
     @SerializedName("prizepool")
     val prizePool: String,
     @SerializedName("serie")
-    val serie: Sery,
+    val serie: Series,
     @SerializedName("serie_id")
     val serieId: Int,
     @SerializedName("slug")

@@ -3,22 +3,31 @@ package com.test.lolinformation.ui.tournament.series
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.test.lolinformation.data.local.model.Sery
+import com.test.lolinformation.data.local.model.Series
 import com.test.lolinformation.data.remote.api.LCK_LEAGUE_ID
 import com.test.lolinformation.data.remote.api.LEC_LEAGUE_ID
 import com.test.lolinformation.data.remote.api.LPL_LEAGUE_ID
 import com.test.lolinformation.databinding.BaseLoadMoreFragmentBinding
 import com.test.lolinformation.ui.base.BaseLoadMoreFragment
+import com.test.lolinformation.ui.tournament.TournamentFragmentDirections
 import com.test.lolinformation.ui.tournament.TournamentPagerAdapter.Companion.LCK_ITEM
-import com.test.lolinformation.ui.tournament.TournamentPagerAdapter.Companion.LEC_ITEM
 import com.test.lolinformation.ui.tournament.TournamentPagerAdapter.Companion.LPL_ITEM
 import kotlinx.android.synthetic.main.base_load_more_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SerieFragment : BaseLoadMoreFragment<BaseLoadMoreFragmentBinding, SerieViewModel, Sery>() {
+class SerieFragment : BaseLoadMoreFragment<BaseLoadMoreFragmentBinding, SerieViewModel, Series>() {
     override val viewModel: SerieViewModel by viewModel()
-    private val serieAdapter by lazy { SerieAdapter() }
+    private val serieAdapter by lazy {
+        SerieAdapter(
+            onItemClick = {
+                findNavController().navigate(
+                    TournamentFragmentDirections.actionTournamentFragmentToSerieDetailFragment(it.id)
+                )
+            }
+        )
+    }
     private var leagueId : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -14,7 +14,7 @@ data class League(
     @SerializedName("name")
     val name: String,
     @SerializedName("series")
-    val series: List<Sery>,
+    val series: List<Series>,
     @SerializedName("slug")
     val slug: String,
     @SerializedName("url")

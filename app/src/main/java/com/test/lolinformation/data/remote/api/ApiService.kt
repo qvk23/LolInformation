@@ -27,7 +27,7 @@ interface ApiService {
     suspend fun getSeriesByLeague(
         @Query(QUERY_FILTER_LEAGUE_ID) leagueId: Int,
         @Query(QUERY_FILTER_YEAR) year: Int
-    ): List<Sery>
+    ): List<Series>
 
     @GET(PATH_MATCH)
     suspend fun getMatchesBySerie(

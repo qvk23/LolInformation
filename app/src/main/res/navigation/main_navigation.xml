@@ -12,5 +12,17 @@
         android:id="@+id/tournamentFragment"
         android:name="com.test.lolinformation.ui.tournament.TournamentFragment"
         android:label="fragment_tournament"
-        tools:layout="@layout/fragment_tournament" />
+        tools:layout="@layout/fragment_tournament" >
+        <action
+            android:id="@+id/action_tournamentFragment_to_serieDetailFragment"
+            app:destination="@id/serieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serieDetailFragment"
+        android:name="com.test.lolinformation.ui.tournament.detailserie.SerieDetailFragment"
+        android:label="SerieDetailFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
