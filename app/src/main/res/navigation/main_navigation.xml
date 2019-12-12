@@ -25,4 +25,9 @@
             android:name="id"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/matchFragment"
+        android:name="com.test.lolinformation.ui.tournament.match.MatchFragment"
+        android:label="MatchFragment"
+        tools:layout="@layout/base_load_more_fragment" />
 </navigation>
