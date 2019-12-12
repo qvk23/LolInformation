@@ -1,12 +1,10 @@
 package com.test.lolinformation.data.repository
 
-import com.test.lolinformation.data.local.dao.MatchDao
 import com.test.lolinformation.data.local.model.*
 import com.test.lolinformation.data.remote.api.ApiService
 
 class MatchRepositoryImp(
-    private val apiService: ApiService,
-    private val matchDao: MatchDao
+    private val apiService: ApiService
 ) : MatchRepository {
 
     override suspend fun getLeagueByName(name: List<String>): List<League> =
@@ -32,9 +30,4 @@ class MatchRepositoryImp(
 
     override suspend fun getPlayerByTeam(teamId: Int): List<Player> =
         apiService.getPlayerByTeam(teamId)
-
-    override suspend fun getMatchLocal(): List<Match> = matchDao.getMatchesList()
-
-    override suspend fun insertMatch(matches: List<Match>) = matchDao.insertMatches(matches)
-
 }

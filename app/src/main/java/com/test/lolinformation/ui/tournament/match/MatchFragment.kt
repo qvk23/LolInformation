@@ -1,32 +1,44 @@
 package com.test.lolinformation.ui.tournament.match
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.test.lolinformation.data.local.model.Match
+import com.test.lolinformation.databinding.BaseLoadMoreFragmentBinding
+import com.test.lolinformation.ui.base.BaseLoadMoreFragment
+import kotlinx.android.synthetic.main.base_load_more_fragment.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-import com.test.lolinformation.R
+class MatchFragment : BaseLoadMoreFragment<BaseLoadMoreFragmentBinding, MatchViewModel, Match>() {
 
-class MatchFragment() : Fragment() {
+    override val viewModel: MatchViewModel by viewModel()
+    private val matchAdapter by lazyOf(MatchAdapter())
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val key = arguments?.getInt(SERIE_ID)
+        key?.let(viewModel::setSerieId)
+    }
+
+    override fun initView() {
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = matchAdapter
+        }
+    }
+
+    override fun observeData() {
+        viewModel.apply {
+            listItem.observe(viewLifecycleOwner, Observer(matchAdapter::submitList))
+            firstLoad()
+        }
+    }
 
     companion object {
-        fun newInstance() = MatchFragment()
+        fun newInstance(id: Int) = MatchFragment().apply {
+            arguments = bundleOf(SERIE_ID to id)
+        }
+
+        const val SERIE_ID = "serie_id"
     }
-
-    private lateinit var viewModel: MatchViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_match, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MatchViewModel::class.java)
-    }
-
 }
