@@ -10,6 +10,7 @@ import com.test.lolinformation.ui.tournament.*
 import com.test.lolinformation.ui.tournament.detailserie.SerieDetailViewModel
 import com.test.lolinformation.ui.tournament.match.MatchViewModel
 import com.test.lolinformation.ui.tournament.series.SerieViewModel
+import com.test.lolinformation.ui.tournament.team.TeamViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -24,4 +25,5 @@ val viewModelModule = module {
     viewModel { SerieViewModel(get()) }
     viewModel { SerieDetailViewModel() }
     viewModel { MatchViewModel(get()) }
+    viewModel { TeamViewModel(get()) }
 }
