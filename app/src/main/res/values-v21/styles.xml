@@ -3,7 +3,7 @@
 
     <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog">
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@color/colorWhite</item>
+        <item name="android:navigationBarColor">@color/color_white</item>
     </style>
 
 </resources>

@@ -18,4 +18,7 @@
     <string name="item_score">Score</string>
     <string name="string_vs">VS</string>
     <string name="string_match">Match</string>
+    <string name="string_team_preview">Team Preview</string>
+    <string name="string_line_up">LineUp</string>
+
 </resources>

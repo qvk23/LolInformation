@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.test.lolinformation.data.local.model.Player" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_16"
+        android:outlineAmbientShadowColor="@color/color_gray"
+        app:cardCornerRadius="@dimen/dp_8"
+        app:cardElevation="@dimen/dp_8"
+        tools:targetApi="P">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textPlayerSlug"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:text="@{item.name}"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/textPlayerFirstName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.firstName}"
+                android:textColor="@color/color_gray"
+                app:layout_constraintEnd_toEndOf="@+id/textPlayerSlug"
+                app:layout_constraintStart_toStartOf="@id/textPlayerSlug"
+                app:layout_constraintTop_toBottomOf="@id/textPlayerSlug" />
+
+            <TextView
+                android:id="@+id/textPlayerLastName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.lastName}"
+                android:textColor="@color/color_gray"
+                app:layout_constraintEnd_toEndOf="@id/textPlayerFirstName"
+                app:layout_constraintStart_toStartOf="@id/textPlayerFirstName"
+                app:layout_constraintTop_toBottomOf="@+id/textPlayerFirstName" />
+
+            <TextView
+                android:id="@+id/textPlayerRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:text="@{item.role.toUpperCase()}"
+                android:textColor="@color/color_pink"
+                android:textSize="@dimen/sp_25"
+                app:layout_constraintBottom_toBottomOf="@id/textPlayerSlug"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textPlayerSlug"
+                tools:ignore="RtlCompat" />
+
+            <ImageView
+                android:id="@+id/imagePlayer"
+                loadImage="@{item.imageUrl}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textPlayerLastName"
+                tools:ignore="ContentDescription"
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

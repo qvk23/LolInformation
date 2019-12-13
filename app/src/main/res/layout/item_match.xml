@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_4"
         app:cardCornerRadius="@dimen/dp_12"
-        app:strokeColor="@color/colorGrayOpacity"
+        app:strokeColor="@color/color_gray_opacity"
         app:strokeWidth="@dimen/dp_2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,7 +63,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/textScoreLeft"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@color/colorGrayOpacity"
+                app:strokeColor="@color/color_gray_opacity"
                 app:strokeWidth="@dimen/dp_2">
 
                 <ImageView

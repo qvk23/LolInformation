@@ -1,6 +1,7 @@
 package com.test.lolinformation.ui.tournament.team
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -9,6 +10,7 @@ import com.test.lolinformation.data.local.model.Team
 import com.test.lolinformation.databinding.BaseLoadMoreFragmentBinding
 import com.test.lolinformation.ui.base.BaseLoadMoreFragment
 import com.test.lolinformation.ui.tournament.detailteam.DetailTeamFragmentDirections
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.base_load_more_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -22,6 +24,10 @@ class TeamFragment private constructor() :
                 findNavController().navigate(
                     DetailTeamFragmentDirections.actionGlobalDetailTeamFragment(it)
                 )
+                (activity as AppCompatActivity).run {
+                    supportActionBar?.hide()
+                    fabSearch.hide()
+                }
             }
         )
     )
@@ -29,10 +35,14 @@ class TeamFragment private constructor() :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val key = arguments?.getInt(SERIE_ID)
-        key?.let(viewModel::setSerieId)
+        key?.let(viewModel::setSeriesId)
     }
 
     override fun initView() {
+        (activity as AppCompatActivity).run {
+            supportActionBar?.show()
+            fabSearch.show()
+        }
         recyclerView.apply {
             layoutManager = GridLayoutManager(context, SPAN_COUNT)
             adapter = teamAdapter

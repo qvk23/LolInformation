@@ -12,7 +12,11 @@
         tools:layout="@layout/base_load_more_fragment">
         <action
             android:id="@+id/action_championFragment_to_detailChampionFragment"
-            app:destination="@id/detailChampionFragment" />
+            app:destination="@id/detailChampionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/detailChampionFragment"
