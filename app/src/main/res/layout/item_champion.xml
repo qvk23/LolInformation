@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_100"
                 android:elevation="@dimen/dp_8"
-                android:outlineAmbientShadowColor="@color/colorGray"
+                android:outlineAmbientShadowColor="@color/color_gray"
                 android:scaleType="centerCrop"
                 tools:ignore="ContentDescription"
                 tools:targetApi="P" />
