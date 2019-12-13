@@ -6,9 +6,13 @@ import com.test.lolinformation.data.local.model.Team
 import com.test.lolinformation.databinding.ItemTeamBinding
 import com.test.lolinformation.ui.base.BaseRecyclerAdapter
 
-class TeamAdapter : BaseRecyclerAdapter<Team, ItemTeamBinding>(DiffUtilCallBack()) {
+class TeamAdapter(private val onItemClick: (Team) -> Unit) : BaseRecyclerAdapter<Team, ItemTeamBinding>(DiffUtilCallBack()) {
     override val layoutId: Int = R.layout.item_team
-
+    override fun bindFirstTime(binding: ItemTeamBinding) {
+        binding.layoutItemTeam.setOnClickListener {
+            binding.item?.let(onItemClick)
+        }
+    }
     class DiffUtilCallBack : DiffUtil.ItemCallback<Team>() {
         override fun areItemsTheSame(oldItem: Team, newItem: Team) = oldItem.id == newItem.id
 

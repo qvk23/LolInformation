@@ -13,6 +13,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:id="@+id/layoutItemTeam"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_8">
 

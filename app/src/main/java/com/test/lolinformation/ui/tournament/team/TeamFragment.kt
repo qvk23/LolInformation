@@ -3,18 +3,29 @@ package com.test.lolinformation.ui.tournament.team
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.test.lolinformation.data.local.model.Team
 import com.test.lolinformation.databinding.BaseLoadMoreFragmentBinding
 import com.test.lolinformation.ui.base.BaseLoadMoreFragment
-import com.test.lolinformation.ui.gameplay.champion.ChampionFragment.Companion.SPAN_COUNT
+import com.test.lolinformation.ui.tournament.detailteam.DetailTeamFragmentDirections
 import kotlinx.android.synthetic.main.base_load_more_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TeamFragment private constructor() : BaseLoadMoreFragment<BaseLoadMoreFragmentBinding, TeamViewModel, Team>() {
+class TeamFragment private constructor() :
+    BaseLoadMoreFragment<BaseLoadMoreFragmentBinding, TeamViewModel, Team>() {
 
     override val viewModel: TeamViewModel by viewModel()
-    private val teamAdapter by lazy { TeamAdapter() }
+    private val teamAdapter by lazyOf(
+        TeamAdapter(
+            onItemClick = {
+                findNavController().navigate(
+                    DetailTeamFragmentDirections.actionGlobalDetailTeamFragment(it)
+                )
+            }
+        )
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val key = arguments?.getInt(SERIE_ID)
