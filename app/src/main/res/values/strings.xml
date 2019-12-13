@@ -3,6 +3,7 @@
     <string name="item_game_play">GamePlay</string>
     <string name="item_tournament">Tournament</string>
 
+    <string name="string_search">Search</string>
     <string name="statistics">BASE STATISTICS</string>
     <string name="item_health">HEALTH</string>
     <string name="item_health_regen">HEALTH REGEN</string>

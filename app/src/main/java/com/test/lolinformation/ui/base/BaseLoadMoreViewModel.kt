@@ -18,6 +18,7 @@ abstract class BaseLoadMoreViewModel<Item>() : BaseViewModel() {
     private val _isRefreshing = MutableLiveData<Boolean>().apply { value = false }
     val isRefreshing: LiveData<Boolean> get() = _isRefreshing
     private val isLastPage = MutableLiveData<Boolean>().apply { value = false }
+    private val isSearching = MutableLiveData<Boolean>().apply { value = false }
 
     fun firstLoad() {
         if (isFirst()) {
@@ -28,6 +29,10 @@ abstract class BaseLoadMoreViewModel<Item>() : BaseViewModel() {
 
     private fun isFirst() =
         currentPage.value == FIRST_PAGE_LOAD - 1 && _listItem.value?.isEmpty() ?: true
+
+    fun isSearching(status : Boolean) {
+        isSearching.value = status
+    }
 
     val onRefreshListener = SwipeRefreshLayout.OnRefreshListener {
         if (isLoading.value == true || _isRefreshing.value == true)
@@ -42,6 +47,7 @@ abstract class BaseLoadMoreViewModel<Item>() : BaseViewModel() {
                 || isLoadMore.value == true
                 || isRefreshing.value == true
                 || isLastPage.value == true
+                || isSearching.value == true
             ) return
             _isLoadMore.value = true
             showLoading()

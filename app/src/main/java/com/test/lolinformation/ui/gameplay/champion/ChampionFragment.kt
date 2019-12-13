@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.test.lolinformation.data.local.model.Champion
 import com.test.lolinformation.databinding.BaseLoadMoreFragmentBinding
 import com.test.lolinformation.ui.base.BaseLoadMoreFragment
+import com.test.lolinformation.ui.main.MainActivityViewModel
 import kotlinx.android.synthetic.main.base_load_more_fragment.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ChampionFragment :
@@ -30,12 +32,17 @@ class ChampionFragment :
     }
 
     override fun observeData() {
+        super.observeData()
         viewModel.apply {
             listItem.observe(viewLifecycleOwner, Observer {
-                championAdapter.submitList(it)
+                championAdapter.apply {
+                    submitList(it)
+                    setFullList(it)
+                }
             })
             firstLoad()
         }
+        searchViewModel.queryText.observe(viewLifecycleOwner, Observer(championAdapter.filter::filter))
     }
 
     companion object {

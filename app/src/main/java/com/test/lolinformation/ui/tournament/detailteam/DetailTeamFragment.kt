@@ -11,8 +11,7 @@ import com.test.lolinformation.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_detail_team.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class DetailTeamFragment private constructor() :
-    BaseFragment<FragmentDetailTeamBinding, DetailTeamViewModel>() {
+class DetailTeamFragment : BaseFragment<FragmentDetailTeamBinding, DetailTeamViewModel>() {
 
     override val viewModel: DetailTeamViewModel by viewModel()
     override val layoutId: Int = R.layout.fragment_detail_team

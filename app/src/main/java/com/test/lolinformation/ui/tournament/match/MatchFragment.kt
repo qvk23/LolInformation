@@ -28,10 +28,17 @@ class MatchFragment : BaseLoadMoreFragment<BaseLoadMoreFragmentBinding, MatchVie
     }
 
     override fun observeData() {
+        super.observeData()
         viewModel.apply {
-            listItem.observe(viewLifecycleOwner, Observer(matchAdapter::submitList))
+            listItem.observe(viewLifecycleOwner, Observer {
+                matchAdapter.apply {
+                    submitList(it)
+                    setFullList(it)
+                }
+            })
             firstLoad()
         }
+        searchViewModel.queryText.observe(viewLifecycleOwner, Observer(matchAdapter.filter::filter))
     }
 
     companion object {

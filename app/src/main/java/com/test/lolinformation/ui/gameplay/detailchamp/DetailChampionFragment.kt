@@ -32,12 +32,10 @@ class DetailChampionFragment :
             findNavController().popBackStack(R.id.championFragment, false)
             (activity as AppCompatActivity).run {
                 supportActionBar?.show()
-                fabSearch.show()
             }
         }
         (activity as AppCompatActivity).run {
             supportActionBar?.hide()
-            fabSearch.hide()
         }
     }
 
