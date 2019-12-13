@@ -8,6 +8,7 @@ import com.test.lolinformation.ui.gameplay.item.ItemViewModel
 import com.test.lolinformation.ui.main.MainActivityViewModel
 import com.test.lolinformation.ui.tournament.*
 import com.test.lolinformation.ui.tournament.detailserie.SerieDetailViewModel
+import com.test.lolinformation.ui.tournament.detailteam.DetailTeamViewModel
 import com.test.lolinformation.ui.tournament.match.MatchViewModel
 import com.test.lolinformation.ui.tournament.series.SerieViewModel
 import com.test.lolinformation.ui.tournament.team.TeamViewModel
@@ -26,4 +27,5 @@ val viewModelModule = module {
     viewModel { SerieDetailViewModel() }
     viewModel { MatchViewModel(get()) }
     viewModel { TeamViewModel(get()) }
+    viewModel { DetailTeamViewModel() }
 }

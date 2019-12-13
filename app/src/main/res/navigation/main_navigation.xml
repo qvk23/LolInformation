@@ -26,8 +26,24 @@
             app:argType="integer" />
     </fragment>
     <fragment
-        android:id="@+id/matchFragment"
-        android:name="com.test.lolinformation.ui.tournament.match.MatchFragment"
-        android:label="MatchFragment"
-        tools:layout="@layout/base_load_more_fragment" />
+        android:id="@+id/teamFragment"
+        android:name="com.test.lolinformation.ui.tournament.team.TeamFragment"
+        android:label="TeamFragment"
+        tools:layout="@layout/base_load_more_fragment">
+        <action
+            android:id="@+id/action_teamFragment_to_detailTeamFragment"
+            app:destination="@id/detailTeamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailTeamFragment"
+        android:name="com.test.lolinformation.ui.tournament.detailteam.DetailTeamFragment"
+        android:label="DetailTeamFragment"
+        tools:layout="@layout/fragment_team_detail">
+        <argument
+            android:name="team"
+            app:argType="com.test.lolinformation.data.local.model.Team" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_detailTeamFragment"
+        app:destination="@id/detailTeamFragment" />
 </navigation>
