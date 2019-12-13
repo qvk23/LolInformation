@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 class MatchViewModel(
     private val matchRepository: MatchRepository
 ) : BaseLoadMoreViewModel<Match>() {
+
     private val serieId = MutableLiveData<Int>()
     fun setSerieId(id: Int) {
         serieId.value = id

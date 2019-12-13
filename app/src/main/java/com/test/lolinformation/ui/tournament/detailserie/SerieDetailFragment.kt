@@ -17,7 +17,7 @@ class SerieDetailFragment : BaseFragment<FragmentSerieDetailBinding, SerieDetail
     override fun initView() {
         val fragments = listOf(MatchFragment.newInstance(args.id), TeamFragment.newInstance(args.id))
         val adapter = SerieDetailPagerAdapter(childFragmentManager, fragments)
-        pageSerieDetail.adapter = adapter
+        viewPagerSerieDetail.adapter = adapter
     }
 
     override fun observeData() {}
