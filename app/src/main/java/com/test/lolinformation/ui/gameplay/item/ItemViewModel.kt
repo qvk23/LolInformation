@@ -19,5 +19,4 @@ class ItemViewModel(private val gamePlayRepository: GamePlayRepository) :
             }
         }
     }
-
 }

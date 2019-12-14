@@ -8,11 +8,11 @@ interface GamePlayRepository {
 
     suspend fun getItems(page: Int, perPage: Int): List<Item>
 
-    suspend fun getChampionsLocal(): List<Champion>
+    suspend fun getChampionsLocal(page: Int, perPage: Int): List<Champion>
 
     suspend fun insertChampions(champions: List<Champion>)
 
-    suspend fun getItemsLocal(): List<Item>
+    suspend fun getItemsLocal(page: Int, perPage: Int): List<Item>
 
     suspend fun insertItems(items: List<Item>)
 }

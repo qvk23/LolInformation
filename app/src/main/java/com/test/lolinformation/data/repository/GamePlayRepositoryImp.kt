@@ -12,18 +12,32 @@ class GamePlayRepositoryImp(
     private val itemDao: ItemDao
 ) : GamePlayRepository {
 
-    override suspend fun getChampions(page: Int, perPage: Int): List<Champion> =
-        apiService.getChampions(page, perPage)
+    override suspend fun getChampions(page: Int, perPage: Int): List<Champion> {
+        var list = championDao.getChampionList((page - 1) * perPage, perPage)
+        if (list.isEmpty()) {
+            list = apiService.getChampions(page, perPage)
+            championDao.insertChampion(list)
+        }
+        return list
+    }
 
-    override suspend fun getItems(page: Int, perPage: Int): List<Item> =
-        apiService.getItems(page, perPage)
+    override suspend fun getItems(page: Int, perPage: Int): List<Item> {
+        var list = itemDao.getItemList((page - 1) * perPage, perPage)
+        if (list.isEmpty()) {
+            list = apiService.getItems(page, perPage)
+            itemDao.insertItems(list)
+        }
+        return list
+    }
 
-    override suspend fun getChampionsLocal(): List<Champion> = championDao.getChampionList()
+    override suspend fun getChampionsLocal(page: Int, perPage: Int): List<Champion> =
+        championDao.getChampionList(page, perPage)
 
     override suspend fun insertChampions(champions: List<Champion>) =
         championDao.insertChampion(champions)
 
-    override suspend fun getItemsLocal(): List<Item> = itemDao.getItemList()
+    override suspend fun getItemsLocal(page: Int, perPage: Int): List<Item> =
+        itemDao.getItemList(page, perPage)
 
     override suspend fun insertItems(items: List<Item>) = itemDao.insertItems(items)
 

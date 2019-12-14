@@ -41,4 +41,5 @@ class DetailTeamFragment : BaseFragment<FragmentDetailTeamBinding, DetailTeamVie
     companion object {
         fun newInstance() = DetailTeamFragment()
     }
+
 }

@@ -25,3 +25,16 @@ const val LEC_LEAGUE_ID = 4197
 
 const val DEFAULT_ITEM_PER_PAGE = 20
 const val YEAR = 2019
+const val CODE_TIMEOUT = -1
+const val MESSAGE_TIMEOUT = "Request TimeOut"
+const val CODE_BAD_REQUEST = 400
+const val MESSAGE_BAD_REQUEST = "Bad Request"
+const val CODE_UNAUTHORISED = 401
+const val MESSAGE_UNAUTHORISED = "You are not authorized"
+const val CODE_FORBIDDEN = 403
+const val MESSAGE_FORBIDDEN = "Forbidden"
+const val CODE_NOT_FOUND = 404
+const val MESSAGE_NOT_FOUND = "Not Found"
+const val CODE_UNPROCESSABLE_ENTITY = 422
+const val MESSAGE_UNPROCESSABLE_ENTITY = "Unprocessable Entity"
+const val MESSAGE_SOMETHING_ERROR = "Something went wrong"
