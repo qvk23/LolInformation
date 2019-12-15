@@ -14,6 +14,7 @@ abstract class BaseRecyclerAdapter<Item, ViewBinding : ViewDataBinding>(
     callback: DiffUtil.ItemCallback<Item>
 ) : ListAdapter<Item, BaseViewHolder<ViewBinding>>(callback) {
 
+    protected var listFull = mutableListOf<Item>()
     override fun submitList(list: MutableList<Item>?) {
         super.submitList(ArrayList<Item>(list ?: listOf()))
     }
@@ -29,6 +30,9 @@ abstract class BaseRecyclerAdapter<Item, ViewBinding : ViewDataBinding>(
                 bindFirstTime(this)
             }
         )
+    }
+    fun setFullList(list: MutableList<Item>) {
+        listFull = list
     }
 
     protected open fun bindFirstTime(binding: ViewBinding) {}

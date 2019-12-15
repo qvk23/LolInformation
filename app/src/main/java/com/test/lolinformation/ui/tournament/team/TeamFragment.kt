@@ -26,7 +26,6 @@ class TeamFragment private constructor() :
                 )
                 (activity as AppCompatActivity).run {
                     supportActionBar?.hide()
-                    fabSearch.hide()
                 }
             }
         )
@@ -41,7 +40,6 @@ class TeamFragment private constructor() :
     override fun initView() {
         (activity as AppCompatActivity).run {
             supportActionBar?.show()
-            fabSearch.show()
         }
         recyclerView.apply {
             layoutManager = GridLayoutManager(context, SPAN_COUNT)

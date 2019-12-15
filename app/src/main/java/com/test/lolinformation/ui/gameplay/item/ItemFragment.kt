@@ -21,12 +21,17 @@ class ItemFragment : BaseLoadMoreFragment<BaseLoadMoreFragmentBinding, ItemViewM
     }
 
     override fun observeData() {
+        super.observeData()
         viewModel.apply {
             listItem.observe(viewLifecycleOwner, Observer {
-                itemAdapter.submitList(it)
+                itemAdapter.apply {
+                    submitList(it)
+                    setFullList(it)
+                }
             })
             firstLoad()
         }
+        searchViewModel.queryText.observe(viewLifecycleOwner, Observer (itemAdapter.filter::filter))
     }
 
     companion object {

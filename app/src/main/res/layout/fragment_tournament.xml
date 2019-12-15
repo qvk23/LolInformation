@@ -9,6 +9,8 @@
             android:id="@+id/tabLayoutTour"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:tabIndicatorColor="@color/color_pink"
+            app:tabSelectedTextColor="@color/color_pink"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

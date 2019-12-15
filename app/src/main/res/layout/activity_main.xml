@@ -22,23 +22,13 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/main_navigation" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_search_white_24dp"
-            app:layout_anchor="@id/bottomAppBarMain" />
-
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBarMain"
             style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:backgroundTint="@color/colorAccent"
-            app:fabAlignmentMode="end"
-            app:fabCradleMargin="@dimen/dp_10"
-            app:fabCradleRoundedCornerRadius="@dimen/dp_20"
+            app:backgroundTint="@color/color_pink"
             app:hideOnScroll="true"
             app:navigationIcon="@drawable/ic_menu_white_24dp" />
 
