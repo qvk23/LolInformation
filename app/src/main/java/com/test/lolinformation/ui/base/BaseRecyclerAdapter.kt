@@ -2,6 +2,7 @@ package com.test.lolinformation.ui.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.test.lolinformation.BR
+import com.test.lolinformation.R
 
 abstract class BaseRecyclerAdapter<Item, ViewBinding : ViewDataBinding>(
     callback: DiffUtil.ItemCallback<Item>
@@ -46,6 +48,9 @@ abstract class BaseRecyclerAdapter<Item, ViewBinding : ViewDataBinding>(
             bindView(holder.binding, it, position)
         }
         holder.binding.executePendingBindings()
+        holder.itemView.startAnimation(
+            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.fade_in)
+        )
     }
 
     protected open fun bindView(binding: ViewBinding, item: Item, position: Int) {}

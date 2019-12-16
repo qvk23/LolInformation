@@ -10,8 +10,7 @@ import com.test.lolinformation.ui.base.BaseRecyclerAdapter
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ItemAdapter : BaseRecyclerAdapter<Item, ItemEquipmentBinding>(DiffUtilCallBack()),
-    Filterable {
+class ItemAdapter : BaseRecyclerAdapter<Item, ItemEquipmentBinding>(DiffUtilCallBack()), Filterable {
 
     override val layoutId: Int = R.layout.item_equipment
 

@@ -10,12 +10,10 @@ import com.test.lolinformation.data.local.model.Team
 import com.test.lolinformation.databinding.BaseLoadMoreFragmentBinding
 import com.test.lolinformation.ui.base.BaseLoadMoreFragment
 import com.test.lolinformation.ui.tournament.detailteam.DetailTeamFragmentDirections
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.base_load_more_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TeamFragment private constructor() :
-    BaseLoadMoreFragment<BaseLoadMoreFragmentBinding, TeamViewModel, Team>() {
+class TeamFragment : BaseLoadMoreFragment<BaseLoadMoreFragmentBinding, TeamViewModel, Team>() {
 
     override val viewModel: TeamViewModel by viewModel()
     private val teamAdapter by lazyOf(
@@ -49,7 +47,7 @@ class TeamFragment private constructor() :
 
     override fun observeData() {
         viewModel.apply {
-            listItem.observe(viewLifecycleOwner, Observer(teamAdapter::submitList))
+            listItem.observe(viewLifecycleOwner, Observer (teamAdapter::submitList))
             firstLoad()
         }
     }
